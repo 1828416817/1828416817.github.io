@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="post, 不羡仙">
+    <meta name="keywords" content="线性表, 不羡仙">
     <meta name="description" content="乘风破浪会有时">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>post | 不羡仙</title>
+    <title>线性表 | 不羡仙</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">post</h1>
+                    <h1 class="description center-align post-title">线性表</h1>
                 </div>
             </div>
         </div>
@@ -429,13 +429,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Gorm/">
-                                <span class="chip bg-color">Gorm</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -447,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-18
+                    2021-01-10
                 </div>
                 
 
@@ -468,46 +464,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#利用gorm操作数据库<br>1定义数据库模板<br>2连接数据库<br>3 defer.Close(db)关闭数据库<br>3自动迁移<br>4定义数据库模板对象<br>5对数据库进行增删改查<br>#<br>package main</p>
-<p>import (<br>    “fmt”<br>    “github.com/jinzhu/gorm”<br>    _ “github.com/jinzhu/gorm/dialects/mysql”<br>)<br>//定义操作数据库模板,就和Java中创建一个对应的emp对象差不多<br>type UserInfo struct {<br>    ID uint<br>    Name string<br>    Gender string<br>    Hobby string<br>}<br>func main() {<br>    //连接数据库<br>    db, err := gorm.Open(“mysql”, “root:512612lj@tcp(127.0.0.1:3306)/db1”)<br>    if err!=nil {<br>        panic(err)<br>    }<br>    defer db.Close()<br>    //自动迁移,将模板与数据库关联起来,也就是该模板的指针指向数据库<br>    db.AutoMigrate(&amp;UserInfo{})</p>
-<pre><code>u1 := UserInfo&#123;
-    ID:     1,
-    Name:   &quot;关羽&quot;,
-    Gender: &quot;男&quot;,
-    Hobby:  &quot;骑马&quot;,
-&#125;
-u2 := UserInfo&#123;
-    ID:     2,
-    Name:   &quot;马超&quot;,
-    Gender: &quot;男&quot;,
-    Hobby:  &quot;枪&quot;,
-&#125;
-db.Create(&amp;u1)// 通过数据的指针来创建
-
-db.Create(&amp;u2)
-//查询
-var u = new(UserInfo)
-//查询表中默认升序的第一条数据
-db.First(u)
-fmt.Println(u)
-//查询默认降序的最后一条数据
-var user  = new(UserInfo)
-db.Last(user)
-fmt.Println(user)
-var uu  = new(UserInfo)
-//根据爱好查询表中数据
-db.Find(uu,&quot;hobby=?&quot;,&quot;枪&quot;)
-fmt.Printf(&quot;#%v&quot;,uu)
-//查询表中所有数据放入到UserInfo类型的数组中
-var users []UserInfo
-result := db.Find(&amp;users)
-fmt.Println(result.RowsAffected)
-fmt.Println(users)
-fmt.Println(&quot;************************&quot;)
-//用切片或者map接收返回查询结果
-res:= map[string]interface&#123;&#125;&#123;&#125;
-db.Model(&amp;UserInfo&#123;&#125;).Find(&amp;res)
-fmt.Println(res)</code></pre>
+                <p>//<br>// Created by 50162 on 2021/1/9.<br>//<br>#include &lt;stdbool.h&gt;<br>#include “stdio.h”<br>#include “stdlib.h”<br>#define MaxSize 100<br>//给数据类型起别名,方便后续维护,修改数据类型<br>typedef int ElemType;<br>typedef struct {<br>    ElemType data[MaxSize];<br>    int length;<br>}SqList;<br>//初始化线性表<br>void initSqList(SqList <em>L){<br>    L = (SqList</em>)malloc(sizeof (SqList));<br>    L-&gt;length=0;<br>}<br>//创建线性表<br>void createList(SqList<em>L,ElemType a[],int n){<br>    int i=0,k=0;<br>    for (int i = 0; i &lt; n; i++) {<br>        L-&gt;data[k++]=a[i];<br>    }<br>    L-&gt;length=k;<br>}<br>//打印线性表<br>void shows(SqList</em>L){<br>    for (int i = 0; i <L->length ; i++) {<br>        printf(“%d\t”,L-&gt;data[i]);<br>    }<br>    printf(“\n”);<br>}<br>//销毁线性表<br>void destroy(SqList<em>L){<br>    free(L);<br>}<br>//判断线性表是否为空的<br>bool ListIsEmpty(SqList</em>L){<br>    return L-&gt;length==0;<br>}<br>//求线性表的长度<br>int ListLength(SqList<em>L){<br>    return L-&gt;length;<br>}<br>//通过给出第几个元素来查找元素,用</em>e接收,注意用指针形式<em>e<br>bool GetElem(SqList</em>L,int i,ElemType <em>e){<br>    if (i&lt;0||i&gt;L-&gt;length){<br>        return false;<br>    } else{<br>        <em>e=L-&gt;data[i-1];<br>        return true;<br>    }<br>}<br>//给出元素位置来获取对应元素的下标<br>int LocateElem(SqList</em>L,ElemType e){<br>    int i=0;<br>    while (i<L->length){<br>        if (L-&gt;data[i]==e){<br>            return i+1;<br>            break;<br>        }<br>        i++;<br>    }<br>    return false;<br>}<br>//删除线性表中元素<br>void ListInsert(SqList</em>L,int i,ElemType e){<br>    if (i&lt;0||i&gt;L-&gt;length||i&gt;MaxSize){<br>        return;<br>    }<br>    for (int j = L-&gt;length; j &gt;i ; j–) {<br>        L-&gt;data[j]=L-&gt;data[j-1];<br>    }<br>    L-&gt;data[i]=e;<br>    L-&gt;length+=1;<br>}<br>void ListDelete(SqList<em>L,int i,ElemType</em>e){<br>    if (i&lt;0||i&gt;L-&gt;length){<br>        return;<br>    }<br>    i–;<br>    <em>e = L-&gt;data[i];<br>    for (int j = i; j<L->length-1 ; j++) {<br>        L-&gt;data[j]=L-&gt;data[j+1];<br>    }<br>    L-&gt;length–;<br>}<br>//删除线性表中全部为x的元素<br>void delComItem(SqList</em>L,ElemType x){<br>    int k=0;<br>    for (int i = 0; i <L->length ; i++) {<br>        if (L-&gt;data[i]!=x){<br>            L-&gt;data[k++]=L-&gt;data[i];<br>        }<br>    }<br>    L-&gt;length=k;<br>}<br>//取一个基准值,将比基准值大的元素放到基准值的右边,比基准值小的元素放在基准值的左边<br>void partition(SqList*L){<br>    int i=0,j=L-&gt;length-1;<br>    ElemType pivot = L-&gt;data[0];<br>    while (i&lt;j){<br>        while (i&lt;j&amp;&amp;L-&gt;data[j]&gt;pivot){<br>            j–;<br>        }<br>        while (i&lt;j&amp;&amp;L-&gt;data[i]&lt;=pivot){<br>            i++;<br>        }<br>        if (i&lt;j){<br>            ElemType c = L-&gt;data[i];<br>            L-&gt;data[i]=L-&gt;data[j];<br>            L-&gt;data[j]=c;<br>        }<br>    }<br>    ElemType temp = L-&gt;data[0];<br>    L-&gt;data[0]=L-&gt;data[i];<br>    L-&gt;data[i]=temp;<br>}<br>int main(){<br>    ElemType a[10]={1,2,3,4,5,6,7,8,9,10};<br>    ElemType b[10]={1,2,2,2,2,4,5,6,7,9};<br>    ElemType c[10]={3,8,2,7,1,5,3,4,6,0};<br>    SqList list;<br>    initSqList(&amp;list);<br>    createList(&amp;list,a,10);<br>    shows(&amp;list);<br>    ElemType e;<br>    bool result = GetElem(&amp;list,2,&amp;e);<br>    printf(“%d\n”,e);<br>    ElemType res = LocateElem(&amp;list,9);<br>    printf(“%d\n”,res);<br>    ListInsert(&amp;list,3,120);<br>    //shows(&amp;list);<br>    ElemType e1;<br>    ListDelete(&amp;list,1,&amp;e1);<br>    shows(&amp;list);<br>    printf(“%d\n”,e1);<br>    printf(“————————–\n”);<br>    SqList list1;<br>    initSqList(&amp;list1);<br>    createList(&amp;list1,b,10);<br>    shows(&amp;list1);<br>    delComItem(&amp;list1,2);<br>    shows(&amp;list1);<br>    SqList list2;<br>    initSqList(&amp;list2);<br>    createList(&amp;list2,c,10);<br>    shows(&amp;list2);<br>    partition(&amp;list2);<br>    shows(&amp;list2);</p>
 <p>}</p>
 
                 
@@ -535,7 +492,7 @@ fmt.Println(res)</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2020/12/18/post/">http://example.com/2020/12/18/post/</a>
+                    <a href="http://example.com/2021/01/10/%E7%BA%BF%E6%80%A7%E8%A1%A8/">http://example.com/2021/01/10/%E7%BA%BF%E6%80%A7%E8%A1%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,11 +529,7 @@ fmt.Println(res)</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Gorm/">
-                                    <span class="chip bg-color">Gorm</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -744,9 +697,10 @@ fmt.Println(res)</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/01/10/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
                     <div class="card-image">
@@ -764,9 +718,9 @@ fmt.Println(res)</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -775,6 +729,7 @@ fmt.Println(res)</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -785,13 +740,13 @@ fmt.Println(res)</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">
+                <a href="/2020/12/18/post/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="我的第一篇博客文章">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="post">
                         
-                        <span class="card-title">我的第一篇博客文章</span>
+                        <span class="card-title">post</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -802,7 +757,7 @@ fmt.Println(res)</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-18
                             </span>
                         <span class="publish-author">
                             
@@ -815,8 +770,8 @@ fmt.Println(res)</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Go/">
-                        <span class="chip bg-color">Go</span>
+                    <a href="/tags/Gorm/">
+                        <span class="chip bg-color">Gorm</span>
                     </a>
                     
                 </div>
