@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python批量爬取京客隆图片, 不羡仙">
+    <meta name="keywords" content="表格标签, 不羡仙">
     <meta name="description" content="乘风破浪会有时">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python批量爬取京客隆图片 | 不羡仙</title>
+    <title>表格标签 | 不羡仙</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python批量爬取京客隆图片</h1>
+                    <h1 class="description center-align post-title">表格标签</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-12
+                    2021-01-30
                 </div>
                 
 
@@ -464,13 +464,109 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#Python批量爬取京客隆海报</p>
-<hr>
-<p>import requests<br>from lxml import etree<br>import os</p>
-<p>if not os.path.exists(‘d:/海报’):<br>    os.mkdir(‘d:/海报’)</p>
-<p>headers = {<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75’<br>}<br>url = ‘<a target="_blank" rel="noopener" href="http://www.jkl.com.cn/cn/phoLis.aspx?id=697&#39;">http://www.jkl.com.cn/cn/phoLis.aspx?id=697&#39;</a></p>
-<p>for page in range(1,5):<br>    data = {<br>        ‘__EVENTTARGET’ : ‘AspNetPager1’,<br>        ‘__EVENTARGUMENT’ : page,<br>    }<br>    response = requests.get(url=url,headers=headers,params=data).text<br>    parser = etree.HTML(response)<br>    imgUrls = parser.xpath(‘//div[@class=”proLis”]//@src’)<br>    for imaUrl in imgUrls:<br>        url1 = ‘<a target="_blank" rel="noopener" href="http://www.jkl.com.cn&/#39;+imaUrl">http://www.jkl.com.cn&#39;+imaUrl</a><br>        response1 = requests.get(url=url1,headers=headers).content<br>        imgName = url1.split(‘/‘)[-1]<br>        imgPath = ‘d:/海报/‘+imgName<br>        with open(imgPath,’wb’)as f:<br>            f.write(response1)<br>            print(imgName+”下载成功”)</p>
-
+                <p>#表头标签<th>的作用是字体加粗且居中<br>align=”center” 对齐方式<br>cellspacing=”0” 表格与表格直间的间距默认为2<br>cellpadding=”20” 表格和字体间的距离<br>border=”1” 表格边框 默认值为0<br><!DOCTYPE html></p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>综合案例</title>
+</head>
+<body>
+    <table align="center" cellspacing="0" cellpadding="20" border="1">
+        <tr>
+            <th>排名</th>
+            <th>关键字</th>
+            <th>趋势</th>
+            <th>今日搜索</th>
+            <th>最近7日</th>
+            <th>相关链接</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>鬼吹灯</td>
+            <td><img src="down.jpg"></td>
+            <td>345</td>
+            <td>123</td>
+            <td>
+                <a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?fr=ala0&kw=%CC%F9%B0%C9&tpl=5">贴吧</a>
+                <a href="#">图片</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>盗墓笔记</td>
+            <td><img src="down.jpg"></td>
+            <td>124</td>
+            <td>675432</td>
+            <td>
+                <a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?fr=ala0&kw=%CC%F9%B0%C9&tpl=5">贴吧</a>
+                <a href="#">图片</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>西游记</td>
+            <td><img src="up.jpg"></td>
+            <td>212</td>
+            <td>7654</td>
+            <td>
+                <a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?fr=ala0&kw=%CC%F9%B0%C9&tpl=5">贴吧</a>
+                <a href="#">图片</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>东游记</td>
+            <td><img src="down.jpg"></td>
+            <td>23</td>
+            <td>75645</td>
+            <td>
+                <a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?fr=ala0&kw=%CC%F9%B0%C9&tpl=5">贴吧</a>
+                <a href="#">图片</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>甄嬛传</td>
+            <td><img src="down.jpg"></td>
+            <td>121</td>
+            <td>7676</td>
+            <td>
+                <a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?fr=ala0&kw=%CC%F9%B0%C9&tpl=5">贴吧</a>
+                <a href="#">图片</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>水浒传</td>
+            <td><img src="up.jpg"></td>
+            <td>576576</td>
+            <td>1231234</td>
+            <td>
+                <a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?fr=ala0&kw=%CC%F9%B0%C9&tpl=5">贴吧</a>
+                <a href="#">图片</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>三国演义</td>
+            <td><img src="up.jpg"></td>
+            <td>234</td>
+            <td>7686</td>
+            <td>
+                <a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?fr=ala0&kw=%CC%F9%B0%C9&tpl=5">贴吧</a>
+                <a href="#">图片</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
                 
             </div>
             <hr/>
@@ -496,7 +592,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/01/12/Python%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E4%BA%AC%E5%AE%A2%E9%9A%86%E5%9B%BE%E7%89%87/">http://example.com/2021/01/12/Python%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E4%BA%AC%E5%AE%A2%E9%9A%86%E5%9B%BE%E7%89%87/</a>
+                    <a href="http://example.com/2021/01/30/%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE/">http://example.com/2021/01/30/%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -701,54 +797,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/18/Python%E7%88%AC%E5%8F%96%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89/">
+                <a href="/2021/01/30/%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Python爬取三国演义">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="表格标签">
                         
-                        <span class="card-title">Python爬取三国演义</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-18
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Bob
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/01/11/Python%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E6%95%B0%E6%8D%AE/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Python爬取豆瓣数据">
-                        
-                        <span class="card-title">Python爬取豆瓣数据</span>
+                        <span class="card-title">表格标签</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -759,7 +819,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Bob
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/19/%E8%A7%A3%E5%86%B3windows-redis-%E5%90%AF%E5%8A%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="解决windows redis 启动">
+                        
+                        <span class="card-title">解决windows redis 启动</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
                             </span>
                         <span class="publish-author">
                             
